@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="ega">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0000aa">
+  <title>NOME DO SITE</title>
+  <link rel="preload" href="fonts/ibm-vga-4x3.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="dos-window.css">
+  <script src="dos-select.js" defer></script>
+</head>
+<body class="dw-desk dw-app" style="margin:0">
+  <nav class="dw-menubar" aria-label="Principal">
+    <span aria-hidden="true">≡</span>
+    <a class="dw-menu-btn" href="#t1" accesskey="i" aria-current="page" style="color:inherit;text-decoration:none"><span class="dw-k">I</span>nício</a>
+    <a class="dw-menu-btn" href="#sobre" accesskey="s" style="color:inherit;text-decoration:none"><span class="dw-k">S</span>obre</a>
+    <span class="dw-right">NOME DO SITE · subtítulo</span>
+  </nav>
+
+  <main class="dw-view" style="padding-top:28px">
+    <section class="dw-win" aria-labelledby="t1">
+      <h2 class="dw-win-title">JANELA.TXT</h2>
+      <p class="dw-meta" style="margin:0">Meta em ciano</p>
+      <h1 id="t1" class="dw-h2">Título em amarelo</h1>
+      <hr class="dw-rule">
+      <p class="dw-p">Texto corrido em branco sobre azul EGA.</p>
+      <div class="dw-lrow">
+        <label for="modo">Modo</label>
+        <select id="modo" name="modo" data-dw-select>
+          <option>Leitura</option>
+          <option>Edição</option>
+        </select>
+      </div>
+      <details id="sobre">
+        <summary>Sobre</summary>
+        <p class="dw-p">Exemplo de lista e painel expansível.</p>
+      </details>
+    </section>
+  </main>
+
+  <footer class="dw-status">
+    <span><span class="dw-k">↑ ↓</span> Opções · <span class="dw-k">Esc</span> Fechar lista</span>
+    <span class="dw-right">DOS WINDOW Design System from https://github.com/dbonates/dos-window-skill</span>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="ega">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0000aa">
+  <title>DOS Window — galeria</title>
+  <link rel="preload" href="../dos-window/assets/fonts/ibm-vga-4x3.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../dos-window/assets/dos-window.css">
+  <script src="../dos-window/assets/dos-select.js" defer></script>
+  <style>
+    body { margin: 0; }
+    .row { display: flex; flex-wrap: wrap; gap: 30px 34px; align-items: flex-start; }
+    .grow { flex: 1 1 300px; min-width: 0; }
+    .pal { display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 0; }
+    .pal div { aspect-ratio: 2 / 1; padding: 4px 6px; display: flex; flex-direction: column; justify-content: flex-end; }
+    .pal .lt { color: var(--ega-0); }
+    .pal .dk { color: var(--ega-15); }
+    .shot { padding: 30px 40px 40px 26px; }
+    .demo-screen { position: absolute; inset: 0; display: grid; grid-template-columns: repeat(4, 1fr); }
+  </style>
+</head>
+<body class="dw-desk dw-app">
+  <nav class="dw-menubar" aria-label="Principal">
+    <span aria-hidden="true">≡</span>
+    <a class="dw-menu-btn" href="#janelas" accesskey="j" aria-current="page"><span class="dw-k">J</span>anelas</a>
+    <a class="dw-menu-btn" href="#componentes" accesskey="c"><span class="dw-k">C</span>omponentes</a>
+    <a class="dw-menu-btn" href="#paleta" accesskey="p"><span class="dw-k">P</span>aleta</a>
+    <button class="dw-menu-btn" id="theme" type="button" accesskey="t"><span class="dw-k">T</span>ema: EGA</button>
+    <span class="dw-right">DOS WINDOW · design system 1.1.1</span>
+  </nav>
+
+  <main class="dw-view" style="gap: 0">
+
+    <!-- 1. Shell -->
+    <section id="janelas" class="shot">
+      <div class="row">
+        <section class="dw-win teal" aria-labelledby="w-list" style="flex: 0 1 220px">
+          <h2 class="dw-win-title" id="w-list">Cenas</h2>
+          <div class="dw-list">
+            <button class="dw-list-item" type="button">Logotipo</button>
+            <button class="dw-list-item" type="button" aria-pressed="true">Tela título</button>
+            <button class="dw-list-item" type="button">O mirante</button>
+            <button class="dw-list-item" type="button">O cais</button>
+            <button class="dw-list-item" type="button">Bar, interior</button>
+          </div>
+        </section>
+
+        <section class="dw-win screenwin" aria-labelledby="w-scr" style="flex: 2 1 380px; min-width: 0">
+          <div class="dw-cap"><span aria-hidden="true">▪</span><span id="w-scr"><span class="dw-tag">A</span> PC 16 cores · EGA</span><span aria-hidden="true">▼ ▲</span></div>
+          <div class="dw-screen">
+            <div class="demo-screen" aria-hidden="true">
+              <span style="background:var(--ega-1)"></span><span style="background:var(--ega-9)"></span><span style="background:var(--ega-3)"></span><span style="background:var(--ega-11)"></span>
+              <span style="background:var(--ega-5)"></span><span style="background:var(--ega-13)"></span><span style="background:var(--ega-4)"></span><span style="background:var(--ega-12)"></span>
+              <span style="background:var(--ega-6)"></span><span style="background:var(--ega-14)"></span><span style="background:var(--ega-2)"></span><span style="background:var(--ega-10)"></span>
+              <span style="background:var(--ega-0)"></span><span style="background:var(--ega-8)"></span><span style="background:var(--ega-7)"></span><span style="background:var(--ega-15)"></span>
+            </div>
+          </div>
+          <div class="dw-foot">
+            <div class="dw-btns"><button class="dw-btn" type="button"><span class="dw-k">C</span>omparar</button><button class="dw-btn" type="button">Copiar <span class="dw-k">l</span>ink</button></div>
+            <div class="dw-btns" style="column-gap: 12px"><span>Zoom</span><button class="dw-btn" type="button" aria-pressed="true">1x</button><button class="dw-btn" type="button">2x</button></div>
+          </div>
+        </section>
+
+        <section class="dw-win grow" aria-labelledby="w-info">
+          <h2 class="dw-win-title">Info</h2>
+          <span class="dw-win-close" aria-hidden="true">[<b>■</b>]</span>
+          <p class="dw-meta" style="margin: 0">1984 · IBM</p>
+          <h3 id="w-info" class="dw-h2">Enhanced Graphics Adapter</h3>
+          <p class="dw-meta">640×350 · 16 de 64 cores</p>
+          <hr class="dw-rule">
+          <ul class="dw-notes">
+            <li>A paleta deste design system.</li>
+            <li>Marrom no lugar do amarelo escuro.</li>
+          </ul>
+          <dl class="dw-dl"><dt>Fonte</dt><dd>IBM VGA 9x16</dd><dt>Raio</dt><dd>0</dd></dl>
+        </section>
+      </div>
+    </section>
+
+    <!-- 2. Componentes -->
+    <section id="componentes" class="shot">
+      <div class="row">
+        <section class="dw-win grow" aria-labelledby="c-form">
+          <h2 class="dw-win-title" id="c-form">CONFIG.SYS</h2>
+          <div class="dw-lrow">
+            <label for="monitor">Monitor</label>
+            <select id="monitor" name="monitor" data-dw-select>
+              <option>31 kHz VGA</option>
+              <option selected>15 kHz TV</option>
+              <option>Fósforo âmbar</option>
+              <option>Fósforo verde</option>
+            </select>
+          </div>
+          <div class="dw-range">
+            <label for="scan">Intensidade das scanlines</label>
+            <input id="scan" type="range" min="0" max="100" value="60">
+            <output for="scan">0.60</output>
+          </div>
+          <p style="margin: 10px 0 16px"><span class="dw-chk"><b>[√]</b> Escala por vizinho mais próximo</span></p>
+          <div class="dw-btns" style="padding-bottom: 6px">
+            <button class="dw-btn" type="button"><span class="dw-k">A</span>tualizar catálogo</button>
+            <button class="dw-btn is-hot" type="button"><span class="dw-k">S</span>alvar</button>
+          </div>
+        </section>
+
+        <div class="dw-dropdown" role="menu" aria-label="Opções" style="flex: 0 1 270px">
+          <button class="dw-dd-item" role="menuitem" type="button"><span>√</span><span><span class="dw-k">C</span>RT</span><span class="ms">R</span></button>
+          <button class="dw-dd-item" role="menuitem" type="button"><span></span><span><span class="dw-k">Z</span>oom 2x</span><span class="ms">Z</span></button>
+          <div class="dw-dd-sep" role="separator"></div>
+          <button class="dw-dd-item" role="menuitem" type="button"><span></span><span>Copiar <span class="dw-k">l</span>ink</span><span class="ms">L</span></button>
+          <button class="dw-dd-item" role="menuitem" type="button" aria-disabled="true"><span></span><span><span class="dw-k">E</span>xportar</span><span class="ms">E</span></button>
+        </div>
+
+        <section class="dw-win grey grow" role="dialog" aria-labelledby="c-dlg">
+          <h2 class="dw-win-title" id="c-dlg">README.TXT</h2>
+          <button class="dw-win-close" type="button" aria-label="Fechar">[<b>■</b>]</button>
+          <dl class="dw-dl" style="margin-top: 0"><dt>Emulador</dt><dd>ScummVM</dd><dt>Saída</dt><dd>1600×1200</dd></dl>
+          <details style="margin-top: 10px" open>
+            <summary>Por que 4:3?</summary>
+            <p class="dw-p" style="margin-top: 6px">Os pixels de CRT eram mais altos que largos.</p>
+          </details>
+          <details><summary>Licença da fonte</summary><p class="dw-p" style="margin-top: 6px">DOS WINDOW Design System from https://github.com/dbonates/dos-window-skill</p></details>
+          <div class="dw-btns" style="justify-content: center; margin-top: 14px; padding-bottom: 6px"><button class="dw-btn is-hot" type="button">OK</button></div>
+        </section>
+      </div>
+
+      <div class="row" style="margin-top: 34px">
+        <section class="dw-win grey grow" aria-labelledby="c-tl" style="flex-basis: 520px">
+          <h2 class="dw-win-title" id="c-tl">Versões, em ordem de lançamento</h2>
+          <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: 10px; margin-bottom: 4px">
+            <div class="dw-band" style="grid-column: span 2">1990</div><div class="dw-band b1">1991</div><div class="dw-band b2">1992</div>
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: 10px">
+            <button class="dw-thumb is-a" type="button"><span class="lab">PC 16 cores <small>EGA</small></span></button>
+            <button class="dw-thumb" type="button"><span class="lab">PC 256 <small>VGA</small></span></button>
+            <button class="dw-thumb" type="button"><span class="lab">Amiga <small>OCS</small></span></button>
+            <button class="dw-thumb" type="button"><span class="lab">PC CD <small>VGA</small></span></button>
+          </div>
+          <div class="dw-track" style="margin-top: 10px">
+            <button class="arr" type="button" aria-label="Anterior">◄</button>
+            <span class="seg" style="flex: 3">Interface de 12 verbos</span>
+            <span class="seg alt">9 verbos</span>
+            <button class="arr" type="button" aria-label="Próximo">►</button>
+            <span class="dw-knob" style="left: 14%" aria-hidden="true"></span>
+          </div>
+        </section>
+        <div class="grow" style="display: grid; gap: 30px">
+          <pre class="dw-console">C:\&gt; crt --preset hyllian
+scanlines .... 0.60
+mascara ...... aperture
+OK</pre>
+          <div class="dw-toast" role="status">Link copiado<input aria-label="Link" value="https://exemplo.com/#v=ega&amp;s=3" readonly></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Paleta -->
+    <section id="paleta" class="shot">
+      <section class="dw-win" aria-labelledby="p-t">
+        <h2 class="dw-win-title" id="p-t">EGA · 16 cores</h2>
+        <div class="pal">
+          <div class="dk" style="background:var(--ega-0)">ega-0<br>#000000</div>
+          <div class="dk" style="background:var(--ega-1);outline:2px solid var(--ega-15);outline-offset:-2px">ega-1<br>#0000AA</div>
+          <div class="lt" style="background:var(--ega-2)">ega-2<br>#00AA00</div>
+          <div class="lt" style="background:var(--ega-3)">ega-3<br>#00AAAA</div>
+          <div class="dk" style="background:var(--ega-4)">ega-4<br>#AA0000</div>
+          <div class="dk" style="background:var(--ega-5)">ega-5<br>#AA00AA</div>
+          <div class="dk" style="background:var(--ega-6)">ega-6<br>#AA5500</div>
+          <div class="lt" style="background:var(--ega-7)">ega-7<br>#AAAAAA</div>
+          <div class="dk" style="background:var(--ega-8)">ega-8<br>#555555</div>
+          <div class="lt" style="background:var(--ega-9)">ega-9<br>#5555FF</div>
+          <div class="lt" style="background:var(--ega-10)">ega-10<br>#55FF55</div>
+          <div class="lt" style="background:var(--ega-11)">ega-11<br>#55FFFF</div>
+          <div class="lt" style="background:var(--ega-12)">ega-12<br>#FF5555</div>
+          <div class="lt" style="background:var(--ega-13)">ega-13<br>#FF55FF</div>
+          <div class="lt" style="background:var(--ega-14)">ega-14<br>#FFFF55</div>
+          <div class="lt" style="background:var(--ega-15)">ega-15<br>#FFFFFF</div>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <footer class="dw-status">
+    <span><span class="dw-k">Alt+T</span> Tema</span>
+    <span class="dw-opt"><span class="dw-k">↑ ↓</span> Opções da lista</span>
+    <span class="dw-opt"><span class="dw-k">Esc</span> Fechar</span>
+    <span class="dw-right">DOS WINDOW Design System from https://github.com/dbonates/dos-window-skill</span>
+  </footer>
+
+  <script>
+    (function () {
+      var root = document.documentElement;
+      var btn = document.getElementById("theme");
+      function set(theme) {
+        root.setAttribute("data-theme", theme);
+        btn.innerHTML = '<span class="dw-k">T</span>ema: ' + (theme === "dark" ? "Escuro" : "EGA");
+      }
+      var q = new URLSearchParams(location.search).get("theme");
+      set(q === "dark" ? "dark" : "ega");
+      btn.addEventListener("click", function () {
+        set(root.getAttribute("data-theme") === "dark" ? "ega" : "dark");
+      });
+    })();
+  </script>
+</body>
+</html>
